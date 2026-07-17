@@ -32,10 +32,6 @@ class Settings(BaseSettings):
     )
     CORS_ALLOW_CREDENTIALS: bool = True
 
-    REDIS_URL: str = "redis://localhost:6379/0"
-    REDIS_ENABLED: bool = True
-    REDIS_SOCKET_TIMEOUT: float = 5.0
-    REDIS_CONNECT_TIMEOUT: float = 5.0
 
     SUPABASE_URL: str = ""
     SUPABASE_KEY: str = ""
@@ -43,6 +39,13 @@ class Settings(BaseSettings):
 
     GEMINI_API_KEY: str = ""
     GEMINI_MODEL: str = "gemini-2.5-flash"
+
+    # Gesture Recognition
+    GESTURE_ENABLED: bool = True
+    GESTURE_MODEL_PATH: str = "models/gesture_model.pkl"
+    HAND_LANDMARKER_PATH: str = "models/hand_landmarker.task"
+    GESTURE_CONFIDENCE_THRESHOLD: float = 0.6
+    GEMINI_GESTURE_ENABLED: bool = False  # off by default; enable for sentence building
 
     JWT_SECRET_KEY: str = "change-me-in-production"
     JWT_ALGORITHM: str = "HS256"

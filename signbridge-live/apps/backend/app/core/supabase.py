@@ -1,3 +1,4 @@
+import httpx
 from supabase import Client, create_client
 
 from app.core.config import Settings, get_settings
@@ -51,8 +52,15 @@ class SupabaseManager:
         if not self.is_enabled or not self.is_configured or self._client is None:
             return False
 
-        self._client.table("meetings").select("id").limit(1).execute()
-        return True
+        async with httpx.AsyncClient(timeout=5.0) as client:
+            response = await client.get(
+                f"{self._settings.SUPABASE_URL.rstrip('/')}/rest/v1/",
+                headers={
+                    "apikey": self._settings.SUPABASE_KEY,
+                    "Authorization": f"Bearer {self._settings.SUPABASE_KEY}",
+                },
+            )
+        return response.status_code < 500
 
 
 supabase_manager = SupabaseManager()

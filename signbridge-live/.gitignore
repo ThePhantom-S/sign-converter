@@ -26,3 +26,10 @@ htmlcov/
 
 # Logs
 *.log
+
+# Gesture model artifacts (trained locally — too large for git)
+apps/backend/models/*.pkl
+apps/backend/models/*.csv
+apps/backend/models/*.npy
+!apps/backend/models/.gitkeep
+!apps/backend/models/*.task

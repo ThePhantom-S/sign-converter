@@ -28,7 +28,7 @@ class ApiClient {
         }
         
         if (!config.baseURL) {
-          config.baseURL = 'http://localhost:8000';
+          config.baseURL = 'http://127.0.0.1:8000';
         }
         
         return config;

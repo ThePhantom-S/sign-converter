@@ -15,7 +15,7 @@ const DEFAULT_SETTINGS: AppSettings = {
   avatar: 'default-3d-signbot',
   speechSpeed: 1.0,
   transparency: 85,
-  backendUrl: 'http://localhost:8000',
+  backendUrl: 'http://127.0.0.1:8000',
   apiKey: '',
   recognitionMode: 'speech-api',
   micEnabled: false,
